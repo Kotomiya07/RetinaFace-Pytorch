@@ -117,10 +117,10 @@ class RetinaFaceDetector:
             raise FileNotFoundError(f"重みファイルが見つかりません: {pretrained_path}")
 
         if self.device.type == "cpu":
-            pretrained_dict = torch.load(pretrained_path, map_location=lambda storage, loc: storage)
+            pretrained_dict = torch.load(pretrained_path, weights_only=False, map_location=lambda storage, loc: storage)
         else:
             device_id = torch.cuda.current_device()
-            pretrained_dict = torch.load(pretrained_path, map_location=lambda storage, loc: storage.cuda(device_id))
+            pretrained_dict = torch.load(pretrained_path, weights_only=False, map_location=lambda storage, loc: storage.cuda(device_id))
 
         # state_dictキーがある場合は取り出す
         if "state_dict" in pretrained_dict.keys():
