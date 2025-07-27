@@ -2,9 +2,9 @@ import torch
 import torch.nn as nn
 import torch.nn.functional as F
 from torch.autograd import Variable
-from utils.box_utils import match, log_sum_exp
-from data import cfg_mnet
-GPU = cfg_mnet['gpu_train']
+from ...utils.box_utils import match, log_sum_exp
+from ...config import MOBILENET_CONFIG
+GPU = MOBILENET_CONFIG['gpu_train']
 
 class MultiBoxLoss(nn.Module):
     """SSD Weighted Loss Function

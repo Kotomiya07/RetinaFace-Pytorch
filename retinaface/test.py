@@ -22,7 +22,7 @@ def test_imports():
 
         print("✓ 設定ファイルのインポート成功")
 
-        from retinaface.utils import (
+        from retinaface.utils.image_utils import (
             load_image,
             draw_detection_results,
             crop_face,
@@ -72,7 +72,7 @@ def test_utils():
     print("\n=== ユーティリティテスト ===")
 
     try:
-        from retinaface.utils import calculate_face_area, get_face_center, filter_faces_by_size, sort_faces_by_confidence
+        from retinaface.utils.image_utils import calculate_face_area, get_face_center, filter_faces_by_size, sort_faces_by_confidence
 
         # サンプルデータ
         sample_faces = [

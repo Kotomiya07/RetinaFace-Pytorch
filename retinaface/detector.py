@@ -13,16 +13,11 @@ import time
 from typing import List, Tuple, Optional, Union
 from pathlib import Path
 
-# 既存のモジュールをインポート
-import sys
-
-sys.path.append(os.path.dirname(os.path.dirname(__file__)))
-
-from data import cfg_mnet, cfg_re50
-from layers.functions.prior_box import PriorBox
-from utils.nms.py_cpu_nms import py_cpu_nms
-from models.retinaface import RetinaFace
-from utils.box_utils import decode, decode_landm
+from .config import MOBILENET_CONFIG, RESNET50_CONFIG
+from .layers.functions.prior_box import PriorBox
+from .utils.nms.py_cpu_nms import py_cpu_nms
+from .models.retinaface import RetinaFace
+from .utils.box_utils import decode, decode_landm
 
 
 class RetinaFaceDetector:
@@ -73,9 +68,9 @@ class RetinaFaceDetector:
 
         # 設定を取得
         if network == "mobile0.25":
-            self.cfg = cfg_mnet
+            self.cfg = MOBILENET_CONFIG
         elif network == "resnet50":
-            self.cfg = cfg_re50
+            self.cfg = RESNET50_CONFIG
         else:
             raise ValueError(f"未対応のネットワーク: {network}")
 

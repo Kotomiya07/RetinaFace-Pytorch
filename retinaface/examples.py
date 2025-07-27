@@ -152,7 +152,7 @@ def face_cropping_example():
     """顔の切り出し例"""
     print("\n=== 顔の切り出し例 ===")
 
-    from retinaface.utils import crop_face
+    from retinaface.utils.image_utils import crop_face
 
     # 検出器を初期化
     detector = RetinaFaceDetector(network="resnet50")
