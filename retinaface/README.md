@@ -14,7 +14,7 @@ RetinaFaceを使いやすいライブラリとして実装したPythonパッケ�
 
 ```bash
 # 必要な依存関係をインストール
-uv add torch torchvision opencv-python numpy
+uv sync
 
 # 重みファイルをダウンロード（必要に応じて）
 # ./weights/ ディレクトリに以下のファイルを配置:
